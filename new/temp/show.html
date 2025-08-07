@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>your data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- {{keys}} -->
+    
+    <h1>you can reprent your all dataset here</h1>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">yourname</th>
+      <th scope="col">mobile_number</th>
+      <th scope="col">father</th>
+      <th scope="col">email_id</th>
+      <th scope="col">password</th>
+      <th scope="col">modify</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for i in keys%}
+    <tr>
+      <th scope="row">{{i.id}}</th>
+      <td>{{i.yourname}}</td>
+      <td>{{i.mobile_number}}</td>
+      <td>{{i.father_name}}</td>
+      <td>{{i.email_id}}</td>
+      <td><input type="password" value="{{ i.password }}" readonly class="form-control-plaintext"></td>
+      <td><a href="http://127.0.0.1:8000/todoapp/update/?id={{i.id}}"><button type="button" class="btn btn-danger">change</button></a></td>
+      <td><a href="http://127.0.0.1:8000/todoapp/delete/?id={{i.id}}" ><button type="button" class="btn btn-danger">delete</button></a></td>
+    </tr>
+    {%endfor%}
+    
+  </tbody>
+</table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
+</html>
