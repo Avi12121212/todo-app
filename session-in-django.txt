@@ -1,0 +1,35 @@
+from django.shortcuts import HttpResponse, render
+from requests import session
+
+def start(request):
+    request.session['username'] = 'avinash'
+    request.session['email'] = 'avinash@example.com'
+    request.session['father']= 'avinash papa'
+    return HttpResponse("Session data set")
+
+def atsession(request):
+    username = request.session.get('username')
+    email = request.session.get('email')
+    father= request.session.get('father')
+    print(username,email,father)
+    return HttpResponse(f"Username: {username}, Email: {email},father:{father}")
+
+def endsession(request):
+    try:
+        del request.session['username']
+        del request.session['email']
+    except KeyError:
+        pass
+    return HttpResponse("Session data cleared")
+
+
+
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+
+in session at first step we have to start the session and then we use that started session in the next function this is known as 
+atsession and atlast we finish the session in end session section.
+
+
+
+   
