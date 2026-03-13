@@ -36,7 +36,6 @@ def delete(request):
     # print(id)
     UserProfile.objects.filter(id=id).delete()
     data= UserProfile.objects.all()
-    print(data)
     return render (request,'show.html',{'keys': data})
     return HttpResponse("data after deletion")
 
